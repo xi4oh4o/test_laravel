@@ -19,7 +19,8 @@ class AutoscalingTestController extends Controller
     public function stressTest(Request $request)
     {
         // Optional: Allow script to run for a longer time. Use with caution.
-        // set_time_limit(0); // 0 means no time limit
+        set_time_limit(0); // 0 means no time limit
+        ini_set('memory_limit', '-1');
 
         // --- Maximize CPU Usage ---
         $cpuIterations = (int) $request->input('cpu_iterations', 5000000); // Default iterations
